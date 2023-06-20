@@ -1,0 +1,13 @@
+version: "3"
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        UID: ${UID:-20000}
+        GID: ${GID:-20000}
+    volumes:
+      - .:/workspaces/python_learning
+    user: "${UID:-20000}:${GID:-20000}"
+    command: sleep infinity
