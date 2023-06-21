@@ -1,0 +1,89 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "ubuntu_c_cpp_python_debug",
+	// image or dockerfile or dockerComposeFile. More info: https://containers.dev/guide/dockerfile
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	// "dockerFile": "Dockerfile",
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "developer",
+	"service": "dev",
+	"workspaceFolder": "/workspaces/python_learning",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip3 install --user -r requirements.txt"
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				// Python
+				// Linter
+				"python.linting.enabled": true,
+				"python.linting.lintOnSave": true,
+				"python.linting.pylintEnabled": false,
+				"python.linting.pycodestyleEnabled": false,
+				"python.linting.pep8Enabled": false,
+				"python.linting.flake8Enabled": true,
+				"python.linting.flake8Args": [
+					"--ignore=W293, W504"
+				],
+				// Formatter
+				"editor.formatOnSave": true,
+				"python.formatting.provider": "black",
+				"python.formatting.blackPath": "/usr/local/bin/black",
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": true
+				},
+				"isort.path": [
+					"/usr/local/bin/isort"
+				],
+				"isort.args": [
+					"--profile=black"
+				],
+				"python.linting.mypyEnabled": true,
+				"python.linting.mypyPath": "/usr/local/bin/mypy",
+				"python.linting.mypyArgs": [
+					"--ignore-missing-imports",
+					"--follow-imports=skip"
+				]
+				// pytest
+				// "python.testing.unittestEnabled": false,
+				// "python.testing.nosetestsEnabled": false,
+				// "python.testing.pytestEnabled": true,
+				// "python.testing.pytestArgs": [
+				// "-vv",
+				// "--show-capture=all",
+				// "tests"
+				// ],
+				// docstring
+				// "autoDocstring.docstringFormat": "google",
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"visualstudioexptteam.vscodeintellicode",
+				"ms-vscode.cpptools",
+				"xaver.clang-format",
+				"donjayamanne.git-extension-pack",
+				"yzhang.markdown-all-in-one",
+				"ms-python.python",
+				"ms-python.isort",
+				// "ms-python.black-formatter",
+				"ms-python.vscode-pylance",
+				"coenraads.bracket-pair-colorizer-2",
+				"twxs.cmake",
+				"vscode.cmake-tools",
+				"oderwat.indent-rainbow",
+				"shardulm94.trailing-spaces",
+				"vscodevim.vim",
+				"streetsidesoftware.code-spell-checker",
+				"vscode-icons-team.vscode-icons"
+			]
+		}
+	}
+}
