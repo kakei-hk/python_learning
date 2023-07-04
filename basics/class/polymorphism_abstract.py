@@ -52,3 +52,11 @@ if __name__ == "__main__":
     coord_3d.show_coordinate()
     print(f"distance from origin: {coord_3d.get_distance()}")
     print()
+
+    # return true if the class is the same or derived class
+    print(
+        f"isinstance(coord_2d, CoordinateAbstract): {isinstance(coord_2d, CoordinateAbstract)}"
+    )
+    print(
+        f"isinstance(coord_3d, CoordinateAbstract): {isinstance(coord_3d, CoordinateAbstract)}"
+    )
