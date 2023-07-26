@@ -1,3 +1,4 @@
+import csv
 import math
 from typing import List
 
@@ -50,7 +51,7 @@ def quantize_symmetric_bugged(real_val: float, scale: float) -> int:
     return quant_val_clip
 
 
-def load_csv_num_and_sort(csv: str) -> List[int]:
+def load_csv_num_and_sort(csv_path: str) -> List[int]:
     """
     This function loads a csv file with some numbers as follows.
     Only int type is supported.
@@ -58,7 +59,10 @@ def load_csv_num_and_sort(csv: str) -> List[int]:
     Then return the numbers as a sorted list in ascending order as follows.
     [-1, 2, 5, 40]
     """
-    with open(csv) as f:
-        num_list = sorted(map(lambda n: int(n), f))
+    with open(csv_path) as f:
+        csv_reader = csv.reader(f)
+        str_list = list(csv_reader)[0]
+        num_list = [int(num) for num in str_list]
+        num_list_sorted = sorted(num_list)
 
-    return num_list
+    return num_list_sorted

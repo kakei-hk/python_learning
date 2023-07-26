@@ -1,3 +1,7 @@
+import csv
+import os
+from typing import List
+
 from sample import (
     add_two_int,
     load_csv_num_and_sort,
@@ -35,3 +39,20 @@ def test_quantize_symmetric_bugged(real_val, scale, expected):
 
 
 # fixture
+@pytest.fixture
+def csv_fixture() -> str:
+    # preprocessing
+    csv_path = "numbers.csv"
+    num_list = [2, -1, 0, 15]
+    with open(csv_path, "w") as f:
+        csv_writer = csv.writer(f)
+        csv_writer.writerow(num_list)
+
+    yield csv_path
+
+    # postprocessing
+    os.remove(csv_path)
+
+
+def test_load_csv_num_and_sort(csv_fixture):
+    assert load_csv_num_and_sort(csv_fixture) == [-1, 0, 2, 15]
