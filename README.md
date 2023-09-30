@@ -18,12 +18,14 @@ This project has been tested in the following environments.
       ```
   2. Launch a container.
       ```
-      $ docker-compose run dev
+      $ docker-compose up -d
+      $ docker-compose exec dev bash
       ```
   3. You can execute scripts in the container.
-  4. Exit the container.
+  4. Exit and remove the container.
       ```
       $ exit
+      $ docker-compose down
       ```
 
 - With devcontainer
