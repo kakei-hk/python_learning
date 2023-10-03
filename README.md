@@ -14,7 +14,7 @@ This project has been tested in the following environments.
 - Without devcontainer
   1. Build a docker image using docker-compose.
       ```
-      $ dcoker-compose build
+      $ docker-compose build
       ```
   2. Launch a container.
       ```
