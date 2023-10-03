@@ -33,7 +33,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     python3.8 \
-    python3-pip
+    python3-pip \
+    python-is-python3
 COPY requirements.txt /
 RUN pip3 install -r requirements.txt
 
